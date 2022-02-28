@@ -2,64 +2,47 @@
 
 The structure of the cleaned data files is as follows:
 
-* _location_ location identifier (`string`)
-* _lat_ (approximate) latitude of the observation (`double`).
-* _long_ (approximate) longitude of the observation (`double`).
-* _alt_ (approximate) altitude of the observation (`double`).
-* _year_ year of the observation (`integer`).
-* *bloom_date* date of peak bloom of the cherry trees (ISO 8601 date `string`). The "peak bloom date" may be defined differently for different locations.
-* *bloom_doy* days since January 1st of the year until peak bloom (`integer`). January 1st is `1`.
+*bloom_doy (Bloom day of year): The predictor variable ( days since January 1st of the year until peak bloom (`integer`). January 1st is `1`).(integer)
+*Years : Corresponding time series identifier.(integer)
+*Date of bloom : The exact date of peak bloom.(string)
+*Avg Humidity on BD : Average humidity on the Bloom Date (in %).(float)
+*Jan temp : Average temperature of January of the corresponding year (in Celcius).(float)
+*Feb temp : Average temperature of February of the corresponding year (in Celcius).(float)
+*March temp :  Average temperature of March of the corresponding year (in Celcius).(float)
+*April temp : Average temperature of April of the corresponding year (in Celcius).(float)
+*Avg Temp on BD : Average temperature of the Peak Bloom Day (in Celcius).(float)
+*Precp. Winter : Amount of Precipitation in Winter (in mm). (float)
+*Precp. Spring: Amount of Precipitation in Spring (in mm). (float)
+*Latitude : latitude of the observation (`double`)
+*Longitude : longitude of the observation (`double`)
+*Altitude : altitude of the observation (`double`)
+
+
 
 ## Data sources
 
 ### Washington, D.C. (USA)
 
-The data in file *washingntondc.csv* has been obtained from https://www.epa.gov/climate-indicators/cherry-blossoms.
-The latitude and longitude correspond to the location of the [Tidal Basin in Washington, DC](https://www.nps.gov/articles/dctidalbasin.htm) and the cherry trees are approximately at sea level (altitude 0).
+The data in file *washingntondc.csv* has been obtained from https://www.epa.gov/climate-indicators/cherry-blossoms. Aother site, used for collecting data is https://www.wunderground.com/calendar/us/dc/washington/KDCA . Data for each of the variables are collected from 1921 to 2021.
 
 The peak bloom date is defined as the day when **70%** of the Yoshino Cherry (Prunus x yedoensis) are in full bloom, as determined by the [National Park Service](https://www.nps.gov/subjects/cherryblossom/bloom-watch.htm).
 
-###### Copyright notice
-
-Sourced from EPA's Climate Change Indicators in the United States: https://www.epa.gov/climate-indicators/cherry-blossoms.
-See the source for copyright details.
 
 ### Liestal-Weideli (Switzerland)
 
-The data in the file *liestal.csv* is 
-The cherry trees in Liestal-Weideli are of species _Prunus avium_ (wild cherry).
-
+The data in the file *liestal.csv* is obtained from
+Data for each of the variables are collected from 1982 to 2021.
 The peak bloom date is defined as the day when **25%** of the blossoms are in full bloom.
 The date is determined by MeteoSwiss.
 
-###### Copyright notice
-
-Copyright by *Landwirtschaftliches Zentrum Ebenrain, Sissach and MeteoSwiss.*
-
-- You may use this dataset for non-commercial purposes.
-- You must provide the source ("Source: Landwirtschaftliches Zentrum Ebenrain, Sissach and MeteoSwiss")
 
 ### Kyoto (Japan)
 
 The data has been obtained from http://atmenv.envi.osakafu-u.ac.jp/aono/kyophenotemp4/.
-The geographical location (longitude, latitude, altitude) roughly corresponds to the Nakanoshima area of the Arashiyama Park in Kyoto, Japan.
+Also from https://www.wunderground.com/weather/jp/nakagy%C5%8D-ku, https://www.data.jma.go.jp/obd/stats/etrn/view/monthly_s3_en.php?block_no=47759&view=1
 
+Data is collected from 1922 to 2021 for all the variables mentioned above.
 The peak bloom date of the Prunus jamasakura is determined by a local news paper in Arashiyama (Kyoto, JP).
-Data prior to 1888 is extracted from various descriptions or estimated.
-See the source for details.
-
-###### Copyright notice
-
-Copyright holder Yasuyuki AONO (aono(at)envi.osakafu-u.ac.jp).
-The data was obtained from http://atmenv.envi.osakafu-u.ac.jp/aono/kyophenotemp4/.
-
-- Data from the 9th to the 14th centuries was acquired and analyzed by Aono and Saito (2010; International Journal of Biometeorology, 54, 211-219).
-- Phenology for 15th to 21st centuries was acquired and analyzed by Aono and Kazui (2008; International Journal of Climatology, 28, 905-914).
-
-## Additional data sets
-
-We provide additional data sets for sites other than the main sites relevant for the competition.
-You may use these time series in your modeling to help with spatial and temporal extrapolation.
 
 ### MeteoSwiss (other locations in Switzerland)
 
